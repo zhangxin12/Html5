@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		// setTimeout(),执行一次
+		// setInterval(),连续执行
+		// clearInterval(),
+		// clearTimeout()
+		window.onload=function(){
+			var btn1=document.getElementById("btn1");
+			var btn2=document.getElementById("btn2");
+			var timer=null;
+
+			btn1.onclick=function(){
+				timer=setInterval(function(){
+					alert(10)
+				},1000)
+			}
+
+			btn2.onclick=function(){
+				// 关闭定时器，指定关闭那个定时器
+				clearInterval(timer);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="开启">
+	<input type="button" id="btn2" value="关闭">
+</body>
+</html>

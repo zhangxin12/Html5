@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px black;
+				margin-top: 50px;
+				margin-left: 50px;
+			}
+			#myCanvas2{
+				box-shadow: 0 0 5px salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<!--宽高只能在属性值设置，样式设置像素值有差别-->
+		<canvas id="myCanvas" width="500" height="500">浏览器版本太低，请更新</canvas>
+		<!--<canvas id="myCanvas2" width="50" height="50">
+		</canvas>-->
+	</body>
+	<script>
+		//获取canvas对象
+		var canvas = document.getElementById("myCanvas");
+		//上下文:理解：canvas标签内置画笔
+		var ctx = canvas.getContext("2d");//目前仅支持2d画板
+
+		//  1.如果不想要样式影响下面的矩形，使用save 和 restore两个方法
+		ctx.save(); 
+		ctx.lineWidth="4";
+		ctx.strokeStyle="red";
+		ctx.fillStyle="yellow";
+		ctx.beginPath();
+		ctx.rect(200,50,100,200);
+	//	ctx.closePath(); //rect 默认自动闭合路径，所以可以省去
+		ctx.fill();
+		ctx.stroke();
+
+		ctx.restore();
+
+		//以下简写形式
+		ctx.strokeRect(300,300,100,200);
+
+		//绘制一个填充矩形
+		ctx.fillRect(0,0,100,100);
+		
+		//清除绘制(清除部分完全透明)
+		ctx.clearRect(50,50,40,40);
+		//清除整个画布
+		//ctx.clearRect(0,0,canvas.width,canvas.height);
+	</script>
+</html>
